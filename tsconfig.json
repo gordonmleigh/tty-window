@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": false,
+    "lib": ["ES2019"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noErrorTruncation": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "outDir": "lib/",
+    "pretty": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2019"
+  },
+  "exclude": ["lib/", "node_modules"],
+  "include": ["./"]
+}

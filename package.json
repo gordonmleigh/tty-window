@@ -1,0 +1,39 @@
+{
+  "name": "tty-window",
+  "version": "0.1.0",
+  "description": "This package allows you to create a fixed 'render window' in a TTY, to show status and progress info alongside spooling logs.",
+  "main": "lib/index.js",
+  "exports": "./lib/index.js",
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "watch:compile": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gordonmleigh/tty-window.git"
+  },
+  "author": "Gordon Leigh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gordonmleigh/tty-window/issues"
+  },
+  "homepage": "https://github.com/gordonmleigh/tty-window#readme",
+  "files": [
+    "./**/*.ts",
+    "./lib",
+    "!./lib/test/"
+  ],
+  "devDependencies": {
+    "@types/lodash.throttle": "^4.1.6",
+    "@types/node": "^16.11.12",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.3"
+  },
+  "dependencies": {
+    "lodash.throttle": "^4.1.1"
+  }
+}
