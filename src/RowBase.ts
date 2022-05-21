@@ -1,4 +1,4 @@
-import { Callback, TtyRenderWindowRow } from "./TtyRenderWindowRow.js";
+import { Callback, TtyRenderWindowRow } from './TtyRenderWindowRow.js';
 
 export abstract class RowBase implements TtyRenderWindowRow {
   private readonly listeners: Callback[] = [];

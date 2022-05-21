@@ -1,5 +1,5 @@
-import throttle from "lodash.throttle";
-import { Callback, TtyRenderWindowRow } from "./TtyRenderWindowRow.js";
+import throttle from 'lodash.throttle';
+import { Callback, TtyRenderWindowRow } from './TtyRenderWindowRow.js';
 
 export interface TtyRenderWindowOptions {
   disableWordWrap?: boolean;
@@ -35,8 +35,15 @@ export class TtyRenderWindow {
   /**
    * The height of the terminal in characters, if available.
    */
-  public get screenHeight(): number {
+  public get windowHeight(): number {
     return this.stream.isTTY ? this.stream.rows ?? 24 : 0;
+  }
+
+  /**
+   * The width of the terminal in characters, if available.
+   */
+  public get windowWidth(): number {
+    return this.stream.isTTY ? this.stream.columns ?? 80 : 0;
   }
 
   /**
@@ -130,13 +137,13 @@ export class TtyRenderWindow {
   private _interruptNoRenderTrigger(text: string): void {
     if (this.enabled) {
       this.stream.cursorTo(0);
-      for (const line of text.split("\n")) {
+      for (const line of text.split('\n')) {
         this.stream.write(line);
         this.stream.clearLine(1);
-        this.stream.write("\n");
+        this.stream.write('\n');
       }
     } else {
-      this.stream.write(text + "\n");
+      this.stream.write(text + '\n');
     }
   }
 
@@ -150,12 +157,12 @@ export class TtyRenderWindow {
    */
   private _removeNoRenderTrigger(
     row: TtyRenderWindowRow | number,
-    replace?: string
+    replace?: string,
   ): void {
     let index: number;
     let instance: TtyRenderWindowRow;
 
-    if (typeof row === "number") {
+    if (typeof row === 'number') {
       index = row;
       instance = this.rows[index];
 
@@ -206,18 +213,18 @@ export class TtyRenderWindow {
 
     if (this.disableWordWrap) {
       // disable word wrap
-      this.stream.write("\x1b[?7l");
+      this.stream.write('\x1b[?7l');
     }
 
     let line = 0;
 
     for (
       ;
-      line < this.screenHeight && line < this.rows.length + blankRows;
+      line < this.windowHeight && line < this.rows.length + blankRows;
       ++line
     ) {
       if (line > 0) {
-        this.stream.write("\n");
+        this.stream.write('\n');
       } else {
         this.stream.cursorTo(0);
       }
@@ -239,7 +246,7 @@ export class TtyRenderWindow {
 
     if (this.disableWordWrap) {
       // re-enable word wrap
-      this.stream.write("\x1b[?7h");
+      this.stream.write('\x1b[?7h');
     }
 
     this.deletedRowsSinceLastRender = 0;

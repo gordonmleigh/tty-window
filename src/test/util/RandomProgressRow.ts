@@ -1,4 +1,4 @@
-import { RowBase } from "../../RowBase.js";
+import { RowBase } from '../../RowBase.js';
 
 export class RandomProgressRow extends RowBase {
   private static count = 0;
@@ -13,10 +13,10 @@ export class RandomProgressRow extends RowBase {
   public override render(stream: NodeJS.WriteStream): void {
     const width = stream.columns - 2;
     const bars = Math.floor(this.progress * width);
-    stream.write("[");
-    stream.write("".padEnd(bars, "="));
-    stream.write("".padEnd(width - bars, " "));
-    stream.write("]");
+    stream.write('[');
+    stream.write(''.padEnd(bars, '='));
+    stream.write(''.padEnd(width - bars, ' '));
+    stream.write(']');
   }
 
   private start = (): void => {

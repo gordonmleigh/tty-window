@@ -1,7 +1,7 @@
-import { RowBase } from "./RowBase.js";
+import { RowBase } from './RowBase.js';
 
 export class TextRow extends RowBase {
-  constructor(initialText = "") {
+  constructor(initialText = '') {
     super();
     this._text = initialText;
   }
@@ -15,7 +15,7 @@ export class TextRow extends RowBase {
   }
   private _text: string;
 
-  public render(stream: NodeJS.WriteStream): void {
+  public override render(stream: NodeJS.WriteStream): void {
     stream.write(this.text);
   }
 }
