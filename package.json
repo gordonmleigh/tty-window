@@ -1,6 +1,6 @@
 {
   "name": "tty-window",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "This package allows you to create a fixed 'render window' in a TTY, to show status and progress info alongside spooling logs.",
   "type": "module",
   "main": "./lib/cjs/index.js",
